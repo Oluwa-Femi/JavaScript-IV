@@ -54,9 +54,41 @@ class ProjectManager extends Instructor {
         this.favInstructor = favInstructor;
     }
     standUp(name, channel) {
-        return `${name} announces to ${channel}, @${channel} standy times!`;
+        return `${name} announces to ${channel}, @${channel} stand up people!`;
     }
     debugsCode(name, student, subject) {
         return `${name} debugs ${student}'s code on ${subject}`;
     }
 }
+
+const femi = new Person ({
+    "name": 'femi',
+    "age": 25,
+    "location":'Lagos',
+ });
+ const gabe = new Instructor({
+    "name": 'gabe',
+    "age": 100,
+    "location": 'USA',
+    "specialty": 'JS',
+    "favLanguage": 'JS',
+    "catchPhrase": 'I am evil!!',
+ });
+ const tola = new Student({
+    "name": 'tola',
+    "age": 30,
+    "location": 'Ikoyi',
+     "previousBackground": 'Banker',
+    "className": 'EU3',
+    "favSubjects": 'Physics',
+ });
+ const anna = new ProjectManager({
+    "name": 'anna',
+    "age": 90,
+    "location": 'UK',
+    "specialty": 'frontend',
+    "favLanguage": 'english',
+    "catchPhrase": 'Awesome!!',
+    "gradClassName": 'EU3',
+    "favInstructor": 'Gabe',
+ });
