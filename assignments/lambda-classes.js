@@ -15,7 +15,7 @@ class Person {
 };
 //Instructor class
 class Instructor extends Person {
-    constructor(specialty, favLanguage, catchPhrase) {
+    constructor(name, age, location, specialty, favLanguage, catchPhrase) {
         super(name, age, location);
         this.specialty = specialty;
         this.favLanguage = favLanguage;
@@ -28,24 +28,46 @@ class Instructor extends Person {
         console.log(`${student} receives a perfect score on ${subject}`)
     }
 }
+const gabe = new Instructor({
+    "name": 'gabe',
+    "age": 80,
+    "location": 'USA',
+    "specialty": 'JS',
+    "favLanguage": 'JS',
+    "catchPhrase": 'I am evil!!',
+ });
+gabe.grade('Java script');
+gabe.demo('Java script');
 //Student Class
 class Student extends Person {
-    constructor(previousBackground, className, favSubjects) {
+    constructor(name, age, location, previousBackground, className, favSubjects) {
         super(name, age, location);
         this.previousBackground = previousBackground;
         this.className = className;
         this.favSubjects = favSubjects;
     }
     listsSubjects() {
-        return `${this.favSubjects}`;
+        console.log (`${this.favSubjects}`);
     }
-    PRAssignment(student, subject) {
-        return `${student.name} has submitted a PR for ${subject}`;
+    PRAssignment(student) {
+        console.log (`${student.name} has submitted a PR for ${student.favSubjects[0]}`);
     }
-    sprintChallenge(student, subject) {
-        return `${student.name} has begun spring challenge on ${subject}`;
+    sprintChallenge(student) {
+        console.log (`${student.name} has begun spring challenge on ${student.favSubjects[0]}`);
     }
 }
+const tola = new Student(
+    'tola',
+    30,
+    'Ikoyi',
+    'Banker',
+    'EU3',
+     ['Physics', 'Maths', 'Anatomy', 'Quantum']
+ );
+ tola.listsSubjects();
+ tola.PRAssignment(tola);
+ tola.sprintChallenge(tola);
+/*
 //ProjectManager Class 
 class ProjectManager extends Instructor {
     constructor(gradClassName, favInstructor) {
@@ -66,14 +88,6 @@ const femi = new Person ({
     "age": 25,
     "location":'Lagos',
  });
- const gabe = new Instructor({
-    "name": 'gabe',
-    "age": 100,
-    "location": 'USA',
-    "specialty": 'JS',
-    "favLanguage": 'JS',
-    "catchPhrase": 'I am evil!!',
- });
  const tola = new Student({
     "name": 'tola',
     "age": 30,
@@ -92,3 +106,4 @@ const femi = new Person ({
     "gradClassName": 'EU3',
     "favInstructor": 'Gabe',
  });
+*/
