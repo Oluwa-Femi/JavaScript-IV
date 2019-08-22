@@ -13,31 +13,7 @@ class Person {
         console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
     }
 };
-//Instructor class
-class Instructor extends Person {
-    constructor(name, age, location, specialty, favLanguage, catchPhrase) {
-        super(name, age, location);
-        this.specialty = specialty;
-        this.favLanguage = favLanguage;
-        this.catchPhrase = catchPhrase;
-    }
-    demo(subject) {
-        console.log(`Today we are learning about ${subject}`)
-    }
-    grade(student, subject) {
-        console.log(`${student} receives a perfect score on ${subject}`)
-    }
-}
-const gabe = new Instructor({
-    "name": 'gabe',
-    "age": 80,
-    "location": 'USA',
-    "specialty": 'JS',
-    "favLanguage": 'JS',
-    "catchPhrase": 'I am evil!!',
- });
-gabe.grade('Java script');
-gabe.demo('Java script');
+
 //Student Class
 class Student extends Person {
     constructor(name, age, location, previousBackground, className, favSubjects) {
@@ -67,11 +43,38 @@ const tola = new Student(
  tola.listsSubjects();
  tola.PRAssignment(tola);
  tola.sprintChallenge(tola);
-/*
-//ProjectManager Class 
-class ProjectManager extends Instructor {
-    constructor(gradClassName, favInstructor) {
+//Instructor class
+class Instructor extends Person {
+    constructor(name, age, location, specialty, favLanguage, catchPhrase) {
         super(name, age, location);
+        this.specialty = specialty;
+        this.favLanguage = favLanguage;
+        this.catchPhrase = catchPhrase;
+    }
+    demo(student) {
+        console.log(`Today we are learning about ${student.favSubjects[0]}`)
+    }
+    grade(student) {
+        console.log(`${student.name} receives a perfect score on ${student.favSubjects[0]}`)
+    }
+}
+const gabe = new Instructor({
+    "name": 'gabe',
+    "age": 80,
+    "location": 'USA',
+    "specialty": 'JS',
+    "favLanguage": 'JS',
+    "catchPhrase": 'I am evil!!',
+ });
+gabe.grade(tola);
+gabe.demo(tola);
+
+
+
+//ProjectManager Class 
+/*class ProjectManager extends Instructor {
+    constructor(name, age, location,specialty, favLanguage,  catchPhrase, gradClassName, favInstructor) {
+        super(name, age, location, specialty, favLanguage, catchPhrase);
         this.gradClassName = gradClassName;
         this.favInstructor = favInstructor;
     }
@@ -79,31 +82,18 @@ class ProjectManager extends Instructor {
         return `${name} announces to ${channel}, @${channel} stand up people!`;
     }
     debugsCode(name, student, subject) {
-        return `${name} debugs ${student}'s code on ${subject}`;
+        return `${name} debugs ${student.name}'s code on ${student.favSubjects[0]}`;
     }
 }
-
-const femi = new Person ({
-    "name": 'femi',
-    "age": 25,
-    "location":'Lagos',
- });
- const tola = new Student({
-    "name": 'tola',
-    "age": 30,
-    "location": 'Ikoyi',
-     "previousBackground": 'Banker',
-    "className": 'EU3',
-    "favSubjects": 'Physics',
- });
- const anna = new ProjectManager({
-    "name": 'anna',
-    "age": 90,
-    "location": 'UK',
-    "specialty": 'frontend',
-    "favLanguage": 'english',
-    "catchPhrase": 'Awesome!!',
-    "gradClassName": 'EU3',
-    "favInstructor": 'Gabe',
- });
+ const anna = new ProjectManager(
+    'anna',
+     90,
+    'UK',
+    'frontend',
+    'english',
+    'Oh! Awesome!!',
+    'EU3',
+     'Gabe',
+ );
+anna.standUp(name, channel);
 */
